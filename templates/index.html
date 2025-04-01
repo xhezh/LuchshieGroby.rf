@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ЛучшиеГорбы.рф</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-layout">
+        <!-- Left Column -->
+        <div class="side-column">
+            <img src="{{ url_for('static', filename='images/ad1.jpg') }}" alt="Side Image 1" class="side-image">
+            <img src="{{ url_for('static', filename='images/ad2.jpg') }}" alt="Side Image 2" class="side-image">
+        </div>
+        
+        <!-- Main Container -->
+        <div class="container">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Header Image" class="header-image">
+            <h1>Самые Дешевые и Качественные Ритуальные Услуги - Похоронное Бюро "ЛучшиеГробы.рф"</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+            
+            <!-- Promo Section -->
+            <div class="promo-section">
+                <h2 class="promo-headline">Успейте прямо сейчас и получите подарочную упаковку для гроба!</h2>
+                <p>До конца акции осталось:</p>
+                <div id="countdown-timer" class="countdown-timer">00:00:00</div>
+            </div>
+            
+            <!-- Undertaker Section -->
+            <div class="undertaker-section">
+                <h2>Наша команда</h2>
+                <div class="undertaker-container">
+                    <img src="{{ url_for('static', filename='images/undertaker.jpg') }}" alt="Гробовщик" class="undertaker-photo">
+                    <p>Знакомьтесь — Алексей "Белый", наш главный мастер по упаковке и стилю. Более 3000 довольных клиентов не могут ошибаться.</p>
+                </div>
+            </div>
+
+
+            <h2>Услуги</h2> 
+            
+            <ul class="services-list">
+                <li>Выезд на дом с упаковкой и захоронением <span class="price">9 999</span></li>
+                <li>Редактор гроба (индивидуальный дизайн) <span class="price">от 2 999</span></li>
+                <li>Редактор гроба (смешные картинки) <span class="price">1 499 за картинку</span></li>
+                <li>Выездная диагностика бабки (планируйте заранее) <span class="price">2 500</span></li>
+                <li>Доставка трупа до кладбища <span class="price">5 000</span></li>
+                <li>Фотозона «Последнее селфи» с мгновенными магнитами и брелоками <span class="price">1 999</span></li>
+                <li>Кремация <span class="price">3 000</span></li>
+            </ul>
+            
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="btn">Switch to Dark Mode</button>
+            
+            <!-- Красный баннер -->
+            <div class="alert-banner">
+                <strong>Уважаемые клиенты!</strong> Магазин скоро откроется (не ранее 4 мая) и всех ждут большие радости!
+            </div>
+
+            <!-- Пояснение про детей -->
+            <div class="donation-banner">
+                <p><strong>Пожалуйста, <span class="highlight-blue">помогите 300 детишкам НА ПРОДУКТЫ ПРОПИТАНИЯ</span> через 
+                    <a href="http://dobro.pleer.ru" class="charity-link">dobro.pleer.ru</a></strong></p>
+            </div>
+
+            <div class="mortgage-offer">
+                <h2>📦 Гроб в ипотеку – Успей пока жив!</h2>
+                <p>💰 Первый взнос: 0 руб.  
+                📆 Рассрочка до 666 месяцев  
+                🧾 Без поручителей (если их нет в живых)  
+                💼 Услуга "
+                Переоформление на родственника" включена!</p>
+            
+                <form method="POST" action="/mortgage" class="mortgage-form">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                    <select name="term">
+                        <option value="666">666 месяцев</option>
+                        <option value="999">999 месяцев (VIP)</option>
+                        <option value="∞">∞ (гроб за вас платит потомок)</option>
+                    </select>
+                    <button class="btn">Оформить ипотеку</button>
+                </form>
+            </div>
+            
+
+            <!-- Discount Calculator -->
+            <div class="calculator-section">
+                <h2>Калькулятор скидки</h2>
+                <div class="calculator-container">
+                    <div class="calculator-input">
+                        <label for="bodies-count">Число трупов:</label>
+                        <input type="number" id="bodies-count" min="1" value="1" class="input-field">
+                        
+                        <div class="additional-features">
+                            <h3>Дополнительные услуги:</h3>
+                            <div class="feature-toggle">
+                                <input type="checkbox" id="feature-express" class="toggle-input">
+                                <label for="feature-express">Экспресс доставка (+2000)</label>
+                            </div>
+                            <div class="feature-toggle">
+                                <input type="checkbox" id="feature-premium" class="toggle-input">
+                                <label for="feature-premium">Премиум гроб (+5000)</label>
+                            </div>
+                            <div class="feature-toggle">
+                                <input type="checkbox" id="feature-self-delivery" class="toggle-input">
+                                <label for="feature-self-delivery">Скидка при самопривозе объекта (-20%)</label>
+                            </div>
+                            <div class="feature-toggle">
+                                <input type="checkbox" id="feature-cashback" class="toggle-input">
+                                <label for="feature-cashback">Кэшбек с поминок (до 15%)</label>
+                            </div>
+                            <div class="feature-toggle">
+                                <input type="checkbox" id="feature-photozone" class="toggle-input">
+                                <label for="feature-photozone">Фотозона «Последнее селфи» с магнитами и брелками (+1500)</label>
+                            </div>                            
+                        </div>
+                        
+                        <button id="calculate-btn" class="btn">Рассчитать</button>
+                    </div>
+                    <div class="calculator-output">
+                        <h3>Итоговая стоимость:</h3>
+                        <div id="total-price" class="price-display">0</div>
+                        <div id="discount-info" class="discount-info">Скидка: 0%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="epitaph-generator">
+                <h2>🪦 Генератор надгробных эпитафий</h2>
+                <p id="epitaph-display" class="epitaph-text">Нажмите, чтобы узнать судьбу...</p>
+                <button onclick="generateEpitaph()" class="btn">Сгенерировать эпитафию</button>
+            </div>            
+
+            <!-- Discount Button -->
+            <button id="discount-btn" class="big-red-btn" onclick="alert('Поздравляем! Ваш промокод на скидку: VADIM' + Math.floor(Math.random() * 1000));">ПОЛУЧИТЬ СКИДКУ</button>
+            
+            <div class="charity-banner">
+                <img src="{{ url_for('static', filename='images/cross.png') }}" alt="Крест" class="charity-icon">
+                <div class="charity-text">
+                    <p>Часть нашей прибыли идет на помощь детишкам<br>
+                       в <a href="#" class="charity-link">Свято-Алексиевской Пустыни</a>. <span class="question-icon">❓</span></p>
+                    <p><strong>ВМЕСТЕ ПОМОЖЕМ ДЕТИШКАМ!</strong><br>
+                    Сайт поддержки детишек с онлайн пожертвованиями: <a href="http://dobro.pleer.ru" class="charity-link">dobro.pleer.ru</a></p>
+                </div>
+            </div>
+            
+            <!-- Clients Section -->
+            <div class="clients-section">
+                <h2>Наши клиенты</h2>
+                <div class="client-photos">
+                    <div class="client-item">
+                        <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="Клиент 1" class="client-photo">
+                        <p>Тамара Петровна</p>
+                    </div>
+                    <div class="client-item">
+                        <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Клиент 2" class="client-photo">
+                        <p>Мария Сидорова</p>
+                    </div>
+                    <div class="client-item">
+                        <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="Клиент 3" class="client-photo">
+                        <p>Алексей Иванов</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fortune-wheel-container">
+                <h2>🎡 Колесо фортуны</h2>
+                <canvas id="wheel" width="400" height="400"></canvas>
+                <button class="btn" onclick="spin()">Крутить колесо</button>
+                <div id="wheel-prize" class="wheel-result">Готов к судьбе?</div>
+            </div>
+            
+            <style>
+            .fortune-wheel-container {
+                text-align: center;
+                margin: 40px auto;
+                padding: 20px;
+                border: 2px dashed #4CAF50;
+                border-radius: 12px;
+                max-width: 600px;
+                background: #f9f9f9;
+            }
+            #wheel {
+                margin: 20px auto;
+                display: block;
+            }
+            .wheel-result {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #e74c3c;
+                margin-top: 20px;
+            }
+            .dark-theme .fortune-wheel-container {
+                background-color: #2c3e50;
+                border-color: #2ecc71;
+            }
+            .dark-theme .wheel-result {
+                color: #ff7675;
+            }
+            </style>
+            
+            <script>
+            const prizes = [
+                "⚰️ Гроб с подсветкой",
+                "🧓 Бесплатная диагностика бабки",
+                "🪦 +1 место на кладбище",
+                "💐 Цветы премиум класса",
+                "📸 Последнее селфи",
+                "🚑 Экспресс-доставка тела",
+                "🛏️ Подушка памяти",
+                "💀 Гроб с автографом"
+            ];
+            
+            const colors = ["#f1c40f", "#e67e22", "#e74c3c", "#1abc9c", "#9b59b6", "#3498db", "#2ecc71", "#95a5a6"];
+            let canvas = document.getElementById("wheel");
+            let ctx = canvas.getContext("2d");
+            let wheelRadius = canvas.width / 2;
+            let angle = 0;
+            let spinning = false;
+            
+            function drawWheel() {
+                let sliceAngle = 2 * Math.PI / prizes.length;
+            
+                for (let i = 0; i < prizes.length; i++) {
+                    let startAngle = i * sliceAngle;
+                    ctx.beginPath();
+                    ctx.fillStyle = colors[i % colors.length];
+                    ctx.moveTo(wheelRadius, wheelRadius);
+                    ctx.arc(wheelRadius, wheelRadius, wheelRadius, startAngle, startAngle + sliceAngle);
+                    ctx.fill();
+            
+                    // Text
+                    ctx.save();
+                    ctx.translate(wheelRadius, wheelRadius);
+                    ctx.rotate(startAngle + sliceAngle / 2);
+                    ctx.fillStyle = "black";
+                    ctx.font = "14px sans-serif";
+                    ctx.fillText(prizes[i], wheelRadius / 2.5, 0);
+                    ctx.restore();
+                }
+            }
+            drawWheel();
+            
+            function spin() {
+                if (spinning) return;
+                spinning = true;
+                const spinAngle = Math.random() * 360 + 360 * 5;
+                const duration = 4000;
+                const start = performance.now();
+            
+                function animate(timestamp) {
+                    const elapsed = timestamp - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    angle = (spinAngle * easeOutCubic(progress)) % 360;
+            
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.save();
+                    ctx.translate(wheelRadius, wheelRadius);
+                    ctx.rotate(angle * Math.PI / 180);
+                    ctx.translate(-wheelRadius, -wheelRadius);
+                    drawWheel();
+                    ctx.restore();
+            
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        const selected = Math.floor((prizes.length - (angle / 360) * prizes.length)) % prizes.length;
+                        document.getElementById("wheel-prize").textContent = "🎉 Ваш приз: " + prizes[selected];
+                        spinning = false;
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            
+            function easeOutCubic(t) {
+                return (--t) * t * t + 1;
+            }
+            </script>
+            
+            <!-- Reviews Section -->
+            <div class="reviews-section">
+                <h2>Отзывы</h2>
+                <div class="reviews-container">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="{{ url_for('static', filename='images/1.jpg') }}" alt="Фото клиента" class="review-avatar">
+                            <div class="review-author">
+                                <h4>Арсений Перденко, 44</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"
+                            Всем хай✌️ впервые пишу отзыв, потому что эмоции зашкаливают😜! Недавно бабка в очередной раз сказала, что я лентяй и вообще никчёмный, а потом сама взяла и крякнула. Ну а я шо, я не растерялся, сразу полез в интернет и наткнулся на сайт «ЛучшиеГробы.рф»🚀.
+                            Короче, по акции «один гроб берёшь, второй несёшь» дедуля тоже отправился вслед за бабкой, теперь оба довольны лежат рядом👩‍❤️‍👨⚰️⚰️! Скидка огонь🔥. Реально сэкономил — хватило на PS5, теперь хоть играю спокойно.
+                            Особый респект менеджеру Илюхе, который уговорил на гроб с подсветкой RGB, теперь хоть по ночам не страшно на кладбище тусить🤣👌.
+                            Всем советую, если кто-то задолбал, то не медлите, пока скидки не кончились!"</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="{{ url_for('static', filename='images/2.jpg') }}" alt="Фото клиента" class="review-avatar">
+                            <div class="review-author">
+                                <h4>Владимир Шпак, 11</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star-empty">☆</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"все привет и сейчас я хочу поделиться своей историей ведь ЛучшиеГробы.рф очень помогли мне круто сэкономить?!!!
+                            Я из 4 класса каждый бень меня заставляет бабушка я говорю что не буду есть селетку она говорит ешь я и так катигоричен к себе не знаю что ей отвечать можно ли снять жилье в белгороде? В 11 лет я самостоятельный могу 10 тысяч заплатить не считая коммунистические услуги пожалуста прошу не хочу я ечсть эту рыбу у меня аллергия на селетки папа сказал и наконец мои молитвы были услышаны и я похоронил старуху xDD
+                            отдельное спасибо гробовщику Айбеку Насралу!!"</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <img src="{{ url_for('static', filename='images/3.jpg') }}" alt="Фото клиента" class="review-avatar">
+                            <div class="review-author">
+                                <h4>Андрей Станкевич, 54</h4>
+                                <div class="review-rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Добрый день всем посетителям форума!
+                            Недавно я впервые столкнулась с таким явлением как смерть близкого родственника(ушла из жизни бабушка), и даже не знала как мне пережить этот период...
+                            Но через 2 недели у меня умер еще и дед и я решила обратиться в агенство ЛучшиеГорбы.рф!!!Эти ребята по дешевке подобрали уникальный дизайн для гробов и предоставили огромную скидку за парное захоронение!! БУДУ ОБРАЩАТЬСЯ ЕЩЕ И ВСЕМ СОВЕТУЮ"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="death-calendar">
+                <h2>📅 Календарь смерти</h2>
+                <label for="death-date">Выберите дату ухода:</label>
+                <input type="date" id="death-date">
+                <button onclick="checkDeathDiscount()" class="btn">Проверить скидку</button>
+                <p id="discount-result" class="discount-result"></p>
+            </div>
+            
+        </div>
+        
+        <!-- Right Column -->
+        <div class="side-column">
+            <img src="{{ url_for('static', filename='images/ad3.jpeg') }}" alt="Side Image 3" class="side-image">
+            <img src="{{ url_for('static', filename='images/ad4.jpg') }}" alt="Side Image 4" class="side-image">
+        </div>
+    </div>
+    
+    <!-- Welcome Popup -->
+    <div class="welcome-popup" id="welcome-popup">
+        <div class="welcome-popup-content">
+            <div class="welcome-popup-header">
+                <h2>Добро пожаловать в "ЛучшиеГробы.рф"!</h2>
+                <button id="close-welcome-popup" class="close-btn">x</button>
+            </div>
+            <div class="welcome-popup-body">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Лого" class="welcome-logo">
+                <p>Спасибо, что выбрали наши услуги для важного момента в вашей жизни!</p>
+                <p>У нас действует специальное предложение: <span class="highlight">скидка 15% на все услуги</span> при первом обращении!</p>
+                <p>Оставьте заявку прямо сейчас и получите бесплатную консультацию от нашего специалиста.</p>
+                <form method="POST" action="/submit" class="welcome-form">
+                    <input type="text" name="name" placeholder="Имя усопшего" class="welcome-input" required>
+                    <input type="text" name="phone" placeholder="Ваш телефон" class="welcome-input" required>
+                    <button type="submit" class="welcome-btn">Получить консультацию</button>
+                </form>                
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Popup -->
+    <div class="chat-popup" id="chat-popup">
+        <div class="chat-header">
+            <h3>Чат с менеджером</h3>
+            <button id="close-chat" class="close-btn">x</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message manager-message">
+                Здравствуйте! Меня зовут Вадим. Я помогу вам организовать все необходимое. Чем могу помочь?
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Введите сообщение...">
+            <button id="send-message" class="send-btn">↑</button>
+        </div>
+    </div>
+    <!-- Order Form -->
+    <div class="order-section">
+        <h2>Оформить заказ</h2>
+        <form method="POST" action="/order" class="order-form">
+            <label>Имя:</label>
+            <input type="text" name="name" placeholder="Имя усопшего" required>
+
+            <label>Телефон:</label>
+            <input type="text" name="phone" placeholder="Ваш телефон" required>
+
+            <label>Выберите услуги:</label>
+            <div>
+                <label><input type="checkbox" name="services" value="Гроб"> Гроб</label><br>
+                <label><input type="checkbox" name="services" value="Кремация"> Кремация</label><br>
+                <label><input type="checkbox" name="services" value="Доставка"> Доставка</label><br>
+                <label><input type="checkbox" name="services" value="Диагностика бабки"> Диагностика бабки</label>
+                <label><input type="checkbox" name="services" value="Фотозона Последнее селфи"> Фотозона «Последнее селфи» с магнитами и брелоками</label>
+            </div>
+
+            <button type="submit" class="btn">Оформить заказ</button>
+        </form>
+    </div>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>О компании</h3>
+                <p>Похоронное Бюро "ЛучшиеГробы.рф" предоставляет качественные ритуальные услуги с 2005 года.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p>Адрес: ул. Кладбищенская, 13</p>
+                <p>Телефон: +7 (123) 456-78-90</p>
+                <p>Email: info@лучшиегробы.рф</p>
+            </div>
+            <div class="footer-section">
+                <h3>Режим работы</h3>
+                <p>Ежедневно: 24/7</p>
+                <p>Без выходных и праздников</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 ЛучшиеГробы.рф. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Include JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}?v=1.1"></script>
+
+    <script>
+        if (Math.random() < 0.1) {
+            const delay = 2000 + Math.random() * 3000;
+            setTimeout(() => {
+                window.location.href = "/glitch";
+            }, delay);
+        }
+    </script>    
+    
+    <script>
+        function generateEpitaph() {
+            const epitaphs = [
+                "Он нажал F5 и не вернулся",
+                "Теперь он вне зоны досягаемости",
+                "Грустно, но экономно",
+                "Ctrl+Alt+Del… и всё.",
+                "Почил, как жил — с юмором.",
+                "Пора на технический перерыв вечностью.",
+                "Отошёл покурить... навсегда.",
+                "Вышел в оффлайн без сохранения.",
+                "Накрылся медным тазом… и гробом.",
+                "Не выдержал очередного апдейта Windows.",
+                "Занят. Вернусь никогда.",
+                "Он был. Был и всё.",
+                "Ушёл на покой. С собой забрал флешку.",
+                "404: жизнь не найдена.",
+                "Погугли меня в воспоминаниях.",
+                "Шутка зашла слишком далеко.",
+                "Всё включено. Навечно.",
+                "Гробы.рф — и его больше нет.",
+                "Он просто устал. Очень.",
+                "Тут покоится оптимист… временно."
+            ];
+        
+            const random = Math.floor(Math.random() * epitaphs.length);
+            document.getElementById("epitaph-display").textContent = epitaphs[random];
+        }
+    </script>
+
+
+<script>
+    function checkDeathDiscount() {
+        const input = document.getElementById('death-date');
+        const result = document.getElementById('discount-result');
+        const dateValue = input.value;
+    
+        if (!dateValue) {
+            result.textContent = 'Пожалуйста, выберите дату.';
+            return;
+        }
+    
+        const date = new Date(dateValue);
+        const day = date.getDay(); // 0 = Sunday, 5 = Friday
+        const month = date.getMonth() + 1; // 1-based
+        const dayOfMonth = date.getDate();
+    
+        let message = 'На этот день нет специальных акций. Но смерть всё равно бесплатная.';
+    
+        if (day === 5 && dayOfMonth === 13) {
+            message = '🔥 Пятница 13-е! Скидка 13% на все услуги!';
+        } else if (month === 4 && dayOfMonth === 1) {
+            message = '🎭 1 апреля: скидка 100% (если вы только притворяетесь).';
+        } else if (month === 10 && dayOfMonth === 31) {
+            message = '🎃 Хэллоуинская распродажа! Бесплатный грим и конфеты в гроб!';
+        } else if (month === 12 && dayOfMonth === 31) {
+            message = '🎉 Новогодняя акция: +1 гроб в подарок!';
+        } else if (Math.random() < 0.9) {
+            message = '💀 Удача! Сегодня действует тайная скидка 9% на всё.';
+        }
+    
+        result.textContent = message;
+    }
+    </script>
+</body>
+</html>

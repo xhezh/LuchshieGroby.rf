@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ-панель</title>
+    <style>
+        body { font-family: sans-serif; padding: 30px; background: #f9f9f9; }
+        h1, h2 { margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 40px; background: white; }
+        th, td { border: 1px solid #ccc; padding: 12px; text-align: left; }
+        th { background: #3498db; color: white; }
+        tr:hover { background: #f1f1f1; }
+    </style>
+</head>
+<body>
+    <h1>Админ-панель</h1>
+
+    <h2>Формы обратной связи</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Время</th>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Источник</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for submission in submissions %}
+            <tr>
+                <td>{{ submission.time }}</td>
+                <td>{{ submission.name }}</td>
+                <td>{{ submission.phone }}</td>
+                <td>{{ submission.source }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Оформленные заказы</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Время</th>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Услуги</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.time }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.services }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Ипотека на Гробы</h2>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Время</th>
+            <th>Имя</th>
+            <th>Телефон</th>
+            <th>Срок ипотеки</th>
+        </tr>
+        {% for m in mortgages %}
+        <tr>
+            <td>{{ m.time }}</td>
+            <td>{{ m.name }}</td>
+            <td>{{ m.phone }}</td>
+            <td>{{ m.term }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+</body>
+</html>
